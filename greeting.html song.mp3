@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Greeting With Music</title>
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        background: linear-gradient(270deg, #ff0080, #7928ca, #00c6ff);
+        background-size: 600% 600%;
+        animation: bgMove 8s ease infinite;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Arial', sans-serif;
+        overflow: hidden;
+    }
+
+    @keyframes bgMove {
+        0% {background-position: 0% 50%;}
+        50% {background-position: 100% 50%;}
+        100% {background-position: 0% 50%;}
+    }
+
+    h1 {
+        color: white;
+        font-size: 3rem;
+        text-align: center;
+        text-shadow: 0 0 10px #fff, 0 0 20px pink;
+        animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+        from {text-shadow: 0 0 10px #fff;}
+        to {text-shadow: 0 0 30px #ff66cc;}
+    }
+
+    .sparkle {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        background: white;
+        border-radius: 50%;
+        animation: sparkle 3s infinite;
+    }
+
+    @keyframes sparkle {
+        0% {transform: translateY(0); opacity: 1;}
+        100% {transform: translateY(-800px); opacity: 0;}
+    }
+</style>
+</head>
+
+<body>
+
+<h1>
+💖 Welcome 💖 <br>
+Have a Beautiful Day ✨
+</h1>
+
+<audio autoplay loop>
+    <source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+    for (let i = 0; i < 60; i++) {
+        let s = document.createElement("div");
+        s.className = "sparkle";
+        s.style.left = Math.random() * window.innerWidth + "px";
+        s.style.top = Math.random() * window.innerHeight + "px";
+        s.style.animationDuration = (Math.random() * 3 + 2) + "s";
+        document.body.appendChild(s);
+    }
+</script>
+
+</body>
+</html>
